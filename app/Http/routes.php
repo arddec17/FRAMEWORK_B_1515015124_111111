@@ -11,6 +11,14 @@
 |
 */
 /*------------------------------------------------------------------------------------------------------------------------*/
+Route::post('ruangan/simpan','ruanganController@simpan');
+
+Route::get('ruangan/edit/{ruangan}','ruanganController@edit');
+
+Route::post('ruangan/edit/{ruangan}','ruanganController@update');
+
+Route::get('ruangan/hapus/{ruangan}','ruanganController@hapus');
+
 Route::get('ruangan/tambah/simpan','ruanganController@simpan');
 
 Route::get('ruangan/tambah','ruanganController@tambah');
@@ -33,6 +41,16 @@ Route::get('dosen_matakuliah/tambah','dosen_matakuliah@tambah');
 Route::get('dosen_matakuliah','dosen_matakuliah@awal');
 
 /*------------------------------------------------------------------------------------------------------------------------*/
+
+Route::get('matakuliah/{matakuliah}','matakuliahController@lihat');
+
+Route::post('matakuliah/simpan','matakuliahController@simpan');
+
+Route::get('matakuliah/edit/{matakuliah}','matakuliahController@edit');
+
+Route::post('matakuliah/edit/{matakuliah}','matakuliahController@update');
+
+Route::get('matakuliah/hapus/{matakuliah}','matakuliahController@hapus');
 
 Route::get('matakuliah/tambah/simpan','matakuliahController@simpan');
 
@@ -57,6 +75,15 @@ Route::get('dosen/tambah','dosenController@tambah');
 Route::get('dosen','dosenController@awal');
 
 /*------------------------------------------------------------------------------------------------------------------------*/
+Route::get('pengguna/lihat/{pengguna}','PenggunaController@lihat');
+
+Route::post('pengguna/simpan','PenggunaController@simpan');
+
+Route::get('pengguna/edit/{pengguna}','PenggunaController@edit');
+
+Route::post('pengguna/edit/{pengguna}','PenggunaController@update');
+
+Route::get('pengguna/hapus/{pengguna}','PenggunaController@hapus');
 
 Route::get('pengguna/tambah','PenggunaController@tambah');
 
