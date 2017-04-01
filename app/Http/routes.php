@@ -11,71 +11,105 @@
 |
 */
 /*------------------------------------------------------------------------------------------------------------------------*/
-Route::post('ruangan/simpan','ruanganController@simpan');
+route::get('mahasiswa_pengguna','mahasiswaController@mahasiswa');
 
-Route::get('ruangan/edit/{ruangan}','ruanganController@edit');
 
-Route::post('ruangan/edit/{ruangan}','ruanganController@update');
-
-Route::get('ruangan/hapus/{ruangan}','ruanganController@hapus');
-
-Route::get('ruangan/tambah/simpan','ruanganController@simpan');
-
-Route::get('ruangan/tambah','ruanganController@tambah');
-
-Route::get('ruangan','ruanganController@awal');
 
 /*------------------------------------------------------------------------------------------------------------------------*/
-Route::get('jadwal_matakuliah/tambah/simpan','jadwal_matakuliahController@simpan');
+Route::get('ruangan','ruangancontroller@awal');
 
-Route::get('jadwal_matakuliah/tambah','jadwal_matakuliahController@tambah');
+Route::get('ruangan/tambah','ruangancontroller@tambah');
 
-Route::get('jadwal_matakuliah','jadwal_matakuliahController@awal');
+Route::post('ruangan/simpan','RuanganController@simpan');
 
-/*------------------------------------------------------------------------------------------------------------------------*/
+Route::get('ruangan/edit/{ruangan}','RuanganController@edit');
 
-Route::get('dosen_matakuliah/tambah/simpan','dosen_matakuliah@simpan');
+Route::post('ruangan/edit/{ruangan}','RuanganController@update');
 
-Route::get('dosen_matakuliah/tambah','dosen_matakuliah@tambah');
-
-Route::get('dosen_matakuliah','dosen_matakuliah@awal');
+Route::get('ruangan/hapus/{ruangan}','RuanganController@hapus');
 
 /*------------------------------------------------------------------------------------------------------------------------*/
+Route::get('jadwal_matakuliah','jadwal_matakuliahcontroller@awal');
 
-Route::get('matakuliah/{matakuliah}','matakuliahController@lihat');
+Route::get('jadwal_matakuliah/tambah','jadwal_matakuliahcontroller@tambah');
 
-Route::post('matakuliah/simpan','matakuliahController@simpan');
+Route::get('jadwal_matakuliah/hapus','jadwal_matakuliahcontroller@hapus');
 
-Route::get('matakuliah/edit/{matakuliah}','matakuliahController@edit');
+Route::get('jadwal_matakuliah/{jadwal_matakuliah}','jadwal_matakuliahcontroller@lihat');
 
-Route::post('matakuliah/edit/{matakuliah}','matakuliahController@update');
+Route::post('jadwal_matakuliah/simpan','jadwal_matakuliahcontroller@simpan');
 
-Route::get('matakuliah/hapus/{matakuliah}','matakuliahController@hapus');
+Route::get('jadwal_matakuliah/edit/{jadwal_matakuliah}','jadwal_matakuliahcontroller@edit');
 
-Route::get('matakuliah/tambah/simpan','matakuliahController@simpan');
+Route::post('jadwal_matakuliah/edit/{jadwal_matakuliah}','jadwal_matakuliahcontroller@update');
 
-Route::get('matakuliah/tambah','matakuliahController@tambah');
-
-Route::get('matakuliah','matakuliahController@awal');
+Route::get('jadwal_matakuliah/hapus/{jadwal_matakuliah}','jadwal_matakuliahcontroller@hapus');
 
 /*------------------------------------------------------------------------------------------------------------------------*/
 
-Route::get('mahasiswa/tambah/simpan','mahasiswaController@simpan');
+Route::get('dosen_matakuliah','Dosen_matakuliahController@awal');
 
-Route::get('mahasiswa/tambah','mahasiswaController@tambah');
+Route::get('dosen_matakuliah/tambah','Dosen_matakuliahController@tambah');
 
-Route::get('mahasiswa','mahasiswaController@awal');
+Route::get('dosen_matakuliah/lihat/{dosen_matakuliah}','dosen_matakuliahController@lihat');
 
+Route::post('dosen_matakuliah/simpan','dosen_matakuliahController@simpan');
+
+Route::get('dosen_matakuliah/edit/{dosen_matakuliah}','dosen_matakuliahController@edit');
+
+Route::post('dosen_matakuliah/edit/{dosen_matakuliah}','dosen_matakuliahController@update');
+
+Route::get('dosen_matakuliah/hapus/{dosen_matakuliah}','dosen_matakuliahController@hapus');
 /*------------------------------------------------------------------------------------------------------------------------*/
 
-Route::get('dosen/tambah/simpan','dosenController@simpan');
+Route::get('matakuliah','matakuliahcontroller@awal');
 
-Route::get('dosen/tambah','dosenController@tambah');
+Route::get('matakuliah/tambah','matakuliahcontroller@tambah');
+
+Route::get('matakuliah/{matakuliah}','MatakuliahController@lihat');
+
+Route::post('matakuliah/simpan','MatakuliahController@simpan');
+
+Route::get('matakuliah/edit/{matakuliah}','MatakuliahController@edit');
+
+Route::post('matakuliah/edit/{matakuliah}','MatakuliahController@update');
+
+Route::get('matakuliah/hapus/{matakuliah}','MatakuliahController@hapus');
+/*------------------------------------------------------------------------------------------------------------------------*/
+
+Route::get('mahasiswa','mahasiswacontroller@awal');
+
+Route::get('mahasiswa/tambah','mahasiswacontroller@tambah');
+
+Route::get('mahasiswa/hapus','Mahasiswacontroller@hapus');
+
+Route::get('mahasiswa/{mahasiswa}','mahasiswacontroller@lihat');
+
+Route::post('mahasiswa/simpan','mahasiswaController@simpan');
+
+Route::get('mahasiswa/edit/{mahasiswa}','mahasiswaController@edit');
+
+Route::post('mahasiswa/edit/{mahasiswa}','mahasiswacontroller@update');
+
+Route::get('mahasiswa/hapus/{mahasiswa}','mahasiswacontroller@hapus');
+
+/*------------------------------------------------------------------------------------------------------------------------*/
 
 Route::get('dosen','dosenController@awal');
+Route::get('dosen/tambah','dosenController@tambah');
+Route::get('dosen/lihat/{dosen}','dosenController@lihat');
+Route::post('dosen/simpan','dosenController@simpan');
+Route::get('dosen/edit/{dosen}','dosenController@edit');
+Route::post('dosen/edit/{dosen}','dosenController@update');
+Route::get('dosen/hapus/{dosen}','dosenController@hapus');
 
 /*------------------------------------------------------------------------------------------------------------------------*/
-Route::get('pengguna/lihat/{pengguna}','PenggunaController@lihat');
+
+Route::get('pengguna','PenggunaController@awal');
+
+Route::get('pengguna/tambah','PenggunaController@tambah');
+
+Route::get('pengguna/{pengguna}','PenggunaController@lihat');
 
 Route::post('pengguna/simpan','PenggunaController@simpan');
 
@@ -84,10 +118,6 @@ Route::get('pengguna/edit/{pengguna}','PenggunaController@edit');
 Route::post('pengguna/edit/{pengguna}','PenggunaController@update');
 
 Route::get('pengguna/hapus/{pengguna}','PenggunaController@hapus');
-
-Route::get('pengguna/tambah','PenggunaController@tambah');
-
-Route::get('pengguna','PenggunaController@awal');
 
 /*------------------------------------------------------------------------------------------------------------------------*/
 

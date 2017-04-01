@@ -5,24 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
 use App\dosen;
 
-class dosenController extends Controller
+class dosencontroller extends Controller
 {
-    public function awal(){
-        return "Hello dari PenggunaController";
+    public function awal()
+    {
+    	return "Hello dari dosencontroller";
     }
-    public function tambah(){
-    	return $this->simpan();
-    }
-    public function simpan(){
-    	$dosen = new dosen();
-    	$dosen->nama = 'Lesty';
-    	$dosen->nip = '091297392197';
-    	$dosen->alamat = 'Jl.Westen 07';
-    	$dosen->pengguna_id = '1';
-    	$dosen->save();
-    	return "Data Dengan Username {$dosen->nama} telah disimpan";
-    }
+     
+public function tambah()
+{
+	return $this->simpan();
+}
+public function simpan()
+{
+	$dosen= new dosen();
+	$dosen->nama='Egy Alatas';
+	$dosen->nip='1412131516';
+	$dosen->alamat='jalan gelatik 2';
+	$dosen->pengguna_id=2;
+	$dosen->save();
+	return "data dengan nama {$dosen->nama} telah disimpan";
+}
 }
