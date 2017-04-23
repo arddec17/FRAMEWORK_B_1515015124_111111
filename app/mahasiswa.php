@@ -5,25 +5,35 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class mahasiswa extends Model
-{
-    //
-    protected $table='mahasiswa';
-    protected $fillable =['nama','nim','alamat','pengguna_id'];
+{protected $table = 'mahasiswa'; 
+       protected  $guarded = ['id']; 
 
-    public function Pengguna()
-    {
-    	return $this->belongsTo(Pengguna::class);
-        //Relasi BELONGS_TO menunjukkan relasi sebuah model yang memiliki satu nilai atau lebih terhadap sebuah model lain yang memiliki satu nilai
-        //Relasi belongsTo disini menunjukkan bahwa satu nilai diambil dari kepunyaan tabel pengguna yaitu id_pengguna
+      //fungsi yang mendefinisakan hubungan balik dengan model pengguna dari model mahasiswa
+   //eloquent akan mencoba untuk mencocokkan pengguna_id dari model mahasiswa ke id pada model pengguna. Eloquent menentukan default nama foreign key dengan memeriksa nama fungsi relasi dan suffixing nama fungsi dengan _id.
+       public function Pengguna(){
+       	return $this->belongsTo(Pengguna::class);
+       }
+
+     // model mahasiswa berelasi dengan model jadwal_matakuliah dengan relasi One to Many.
+    // Untuk menentukan hubungan ini, dibuat membuat satu fungsi jadwal_matakuliah() pada model mahasiswa 
+    // Fungsi jadwal_matakuliah() harus mempunyai nilai return dari fungsi hasMany() yang ada pada class eloquent
+    // pendefinisian ulang pada foreign key (mahasiswa_id) dengan memasukkan argument tambahan ke fungsi hasMany.
+  //  Logikanya : " setiap mahasiswa bisa mengikuti oleh banyak jadwal matakuliah "
+       public function jadwal_matakuliah(){
+       	return $this->hasMany(jadwal_matakuliah::class,'mahasiswa_id');
+       } 
+public function listMahasiswaDanNim()
+  {
+    $out = [];
+    foreach ($this->all() as $mhs){
+      $out[$mhs->id] = "{$mhs->nama}({$mhs->nim})";
+
     }
+    return $out;
+  }
+  
+  public function getUsernameAttribute(){
+    return $this->pengguna->username;
+  }
 
-    public function jadwal_matakuliah(){
-		return $this->hasMany(jadwal_matakuliah::class);
-        //Relasi hasMany menunjukkan adnaya relasi one to many 
-        //dimana nilai dalam tabel mahasiswa diambil untuk direlasikan dengan tabel jadwal_matakuliah yaitu id_mahasiswa
-	}
-
-	public function getUsernameAttribute(){
-		return $this->pengguna->username;
-	}
 }
